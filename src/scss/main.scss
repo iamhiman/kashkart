@@ -1,0 +1,10 @@
+@import "./global";
+
+h1{
+    color: $primary-color;
+    width: 100px;
+    background-color: $tertiary-color;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
