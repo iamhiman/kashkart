@@ -1,3 +1,28 @@
-$primary-color: blue;
-$secondary-color: pink;
-$tertiary-color: aqua;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+$primary-color: #2b6777;
+$secondary-color: #f2f2f2;
+
+@mixin flexCenter($direction, $justify) {
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: $secondary-color;
+    outline: none;
+}
