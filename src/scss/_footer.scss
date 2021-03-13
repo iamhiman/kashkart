@@ -1,0 +1,17 @@
+footer {
+    @include flexCenter(column, space-evenly);
+    background-color: $primary-color;
+    color: $secondary-color;
+    height: 120px;
+
+    .footer-links {
+        @include flexCenter(row, space-evenly);
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto 15px auto;
+
+        a {
+            padding: 10px 15px 10px 15px;
+        }
+    }
+}
