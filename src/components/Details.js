@@ -1,6 +1,8 @@
 import React, { useState, useContext, useRef } from 'react'
 import { useParams, Link } from "react-router-dom"
 import { DataContext } from "./DataProvider";
+import DetailsThumb from "./DetailsThumb";
+import Colors from "./Colors";
 
 export default function Details() {
 
@@ -36,22 +38,10 @@ export default function Details() {
     
                         <div className="details-content">
                             <h2 title={product.title}>{product.title}</h2>
-                            <div className="colors">
-                                {
-                                    product.colors.map((color, index) => (
-                                        <button key={index} style={{ background: color }}></button>
-                                    ))
-                                }
-                            </div>
+                            <Colors colors={product.colors} />
                             <p>{product.description}</p>
                             <p>{product.content}</p>
-                            <div className="thumb">
-                                {
-                                    product.images.map((img, index) => (
-                                        <img src={img} alt="cover-pic" key={index} onClick={() => setIndex(index)} />
-                                    ))
-                                }
-                            </div>
+                            <DetailsThumb images={product.images} setIndex={setIndex} />
                             <h3>&#8377; {product.price}</h3>
                             <Link to="/" className="details-addtocart">Add to Cart</Link>
                         </div>
