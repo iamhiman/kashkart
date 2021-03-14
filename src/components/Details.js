@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext, useRef } from 'react'
 import { useParams, Link } from "react-router-dom"
 import { DataContext } from "./DataProvider";
 
@@ -9,6 +9,8 @@ export default function Details() {
     //console.log(id);
     const value = useContext(DataContext);
     const [products] = value.products;
+    const [index, setIndex] = useState(0);
+    const imgDiv = useRef();
 
     const details = products.filter((product) => {
         return product.pid === id;
@@ -16,14 +18,22 @@ export default function Details() {
 
     //console.log(details);
 
+    const handleMouseMove = (e) => {
+        const { left, top, width, height } = e.target.getBoundingClientRect();
+        const x = (e.pageX - left) / width * 100;
+        const y = (e.pageY - top) / height * 100;
+
+        //console.log(imgDiv.current);
+        imgDiv.current.style.backgroundPosition = `${x}% ${y}%`;
+    }
+
     return (
         <section>
             {
                 details.map(product => (
                     <div className="details" key={product.pid}>
-                        <div className="details-img" >
-                        </div>
-
+                        <div className="details-img" onMouseMove={handleMouseMove} style={{ backgroundImage: `url(${product.images[index]})` }} ref={imgDiv} onMouseLeave={() => imgDiv.current.style.backgroundPosition = `center`} />
+    
                         <div className="details-content">
                             <h2 title={product.title}>{product.title}</h2>
                             <div className="colors">
@@ -38,7 +48,7 @@ export default function Details() {
                             <div className="thumb">
                                 {
                                     product.images.map((img, index) => (
-                                        <img src={img} alt="" key={index} />
+                                        <img src={img} alt="cover-pic" key={index} onClick={() => setIndex(index)} />
                                     ))
                                 }
                             </div>
