@@ -1,0 +1,88 @@
+.details {
+    @include flexCenter(row, space-evenly);
+    max-width: 1100px;
+    margin: 0 auto 0 auto;
+    flex-wrap: wrap;
+    padding: 20px;
+
+    #{&}-img {
+        @include bordered(2px, $primary-color);
+        width: 350px;
+        margin: 20px;
+        height: 450px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        &:hover {
+            background-size: 150%;
+            cursor: crosshair;
+        }
+    }
+
+    #{&}-content {
+        max-width: 500px;
+        margin: 0 20px 20px 20px;
+
+        h2 {
+            text-transform: uppercase;
+            color: $primary-color;
+            letter-spacing: 1px;
+            word-spacing: 2px;
+            font-size: 35px;
+            margin: 10px;
+        }
+
+        p {
+            line-height: 1.5;
+            margin: 10px;
+        }
+
+        h3 {
+            color: rgb(194, 13, 13);
+            margin: 15px;
+            font-size: 30px;
+        }
+    }
+
+    .colors {
+        @include flexCenter(row, space-between);
+        width: 135px;
+        margin: 10px;
+
+        button {
+            @include bordered(1px, #000);
+            width: 35px;
+            height: 35px;
+            outline: none;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    }
+
+    .thumb {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin: 15px;
+        width: 250px;
+
+        img {
+            @include bordered(1px, $primary-color);
+            width: 50px;
+            cursor: pointer;
+            object-fit: cover;
+        }
+    }
+
+    #{&}-addtocart {
+        background-color: $primary-color;
+        cursor: pointer;
+        color: $secondary-color;
+        margin: 10px;
+        padding: 10px 25px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+}

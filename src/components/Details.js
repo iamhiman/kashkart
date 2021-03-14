@@ -5,8 +5,8 @@ import { DataContext } from "./DataProvider";
 export default function Details() {
 
     const { id } = useParams();
-    console.log(useParams());
-    console.log(id);
+    //console.log(useParams());
+    //console.log(id);
     const value = useContext(DataContext);
     const [products] = value.products;
 
@@ -14,7 +14,7 @@ export default function Details() {
         return product.pid === id;
     })
 
-    console.log(details);
+    //console.log(details);
 
     return (
         <section>
