@@ -5,9 +5,9 @@ export const DataContext = createContext();
 export const DataProvider = (props) => {
 
     const [products, setProducts] = useState([]);
-    console.log("Just before getData");
+    //console.log("Just before getData");
     const getData = () => {
-        console.log("Just before fetchapi");
+        //console.log("Just before fetchapi");
         fetch('data.json'
             , {
                 headers: {
@@ -17,27 +17,31 @@ export const DataProvider = (props) => {
             }
         )
             .then(function (response) {
-                console.log(response)
+                //console.log(response)
                 return response.json();
             })
             .then(function (myJson) {
-                console.log(myJson);
+                //console.log(myJson);
                 setProducts(myJson)
                 //console.log("Products1: ", products );
             });
-            console.log("Just after fetch api");
+            //console.log("Just after fetch api");
     }
 
-    console.log("Just before useeffect after getdata()");
+    //console.log("Just before useeffect after getdata()");
     useEffect(() => {
-        console.log("Inside useffect");
+        //console.log("Inside useffect");
         getData()
         //console.log("Products2: ", products );
-        console.log("After Calling getdata");
+        //console.log("After Calling getdata");
     }, [])
 
+    const value ={
+        products: [products, setProducts],
+    }
+
     return (
-        <DataContext.Provider value={[products, setProducts]}>
+        <DataContext.Provider value={value}>
             {props.children}
         </DataContext.Provider>
     )
