@@ -1,4 +1,4 @@
-import React, {createContext, useState, useEffect} from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 
 export const DataContext = createContext();
 
@@ -25,7 +25,7 @@ export const DataProvider = (props) => {
                 setProducts(myJson)
                 //console.log("Products1: ", products );
             });
-            //console.log("Just after fetch api");
+        //console.log("Just after fetch api");
     }
 
     //console.log("Just before useeffect after getdata()");
@@ -36,8 +36,29 @@ export const DataProvider = (props) => {
         //console.log("After Calling getdata");
     }, [])
 
-    const value ={
+    const [cart, setCart] = useState([]);
+
+    const addCart = (id) => {
+        const check = cart.every(item => {
+            return item.pid !== id;
+        })
+
+        if (check) {
+            const data = products.filter(product => {
+                return product.pid === id;
+            })
+            setCart([...cart, ...data]);
+        }
+        else {
+            alert("Product has been added to cart.");
+        }
+        console.log("cart:", cart);
+    }
+
+    const value = {
         products: [products, setProducts],
+        cart: [cart, setCart],
+        addCart: addCart
     }
 
     return (

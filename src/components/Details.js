@@ -11,6 +11,7 @@ export default function Details() {
     //console.log(id);
     const value = useContext(DataContext);
     const [products] = value.products;
+    const addCart = value.addCart;
     const [index, setIndex] = useState(0);
     const imgDiv = useRef();
 
@@ -43,7 +44,7 @@ export default function Details() {
                             <p>{product.content}</p>
                             <DetailsThumb images={product.images} setIndex={setIndex} />
                             <h3>&#8377; {product.price}</h3>
-                            <Link to="/" className="details-addtocart">Add to Cart</Link>
+                            <Link to="/cart" className="details-addtocart" onClick={() => addCart(product.pid)}>Add to Cart</Link>
                         </div>
 
                     </div>

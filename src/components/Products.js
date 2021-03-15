@@ -6,6 +6,10 @@ export default function Products() {
 
     const value = useContext(DataContext);
     const [products] = value.products;
+    const addCart = value.addCart;
+    console.log("value:", value);
+    console.log(addCart);
+
     //console.log(value);
     //console.log("Inside products component", products);
 
@@ -24,7 +28,7 @@ export default function Products() {
                                 </h3>
                                 <p className="products-desc">{product.description}</p>
                                 <p className="products-price">&#8377; {product.price}</p>
-                                <button>Add to Cart</button>
+                                <button onClick={() => addCart(product.pid)}>Add to Cart</button>
                             </div>
                         </div>
                     ))

@@ -11,7 +11,8 @@
         "colors": ["red", "blue", "green"],
         "description": "USPA Self Design Men Round Neck Multi-Color T-Shirt. Handcrafted with Cotton. Perfect for Summers. Material Composition Is 93% Cotton, 7% Elastane.",
         "content": "Designed with overhead movements in mind, this t-shirt offers a full range of motion. It's made of sweat-wicking fabric with a soft, cotton-like feel. Forward-shifted seams reduce chafing in high-sweat areas while a slight droptail hem adds coverage in back.",
-        "price": 499
+        "price": 499,
+        "count": 1
     },
     {
         "pid": "2",
@@ -25,7 +26,8 @@
         "colors": ["red", "blue", "green"],
         "description": "GAS Casual Men's Regular Fit Mid-Rise trouser made with 100% Cotton. Perfect for Summers. Available in four different colors and five different sizes.",
         "content": "GAS brings to you this stylish casual trouser with a regular fit. They are meticulously stitched out of cotton mix material and feel smooth against your skin. The mid-rise waist provides a modern look and the belt loops allow a tighter fit when a belt is slipped through the loops.",
-        "price": 1299
+        "price": 1299,
+        "count": 1
     },
     {
         "pid": "3",
@@ -39,7 +41,8 @@
         "colors": ["red", "blue", "green"],
         "description": "HRX cruz Men's Sneaker Shoe for Casual Outings. The studded rubber outsole and the fine canvas upper sleek offers comfortable forays.",
         "content": "HRX crux Sneakers is designed for versatile styling. The studded rubber outsole and the fine canvas upper sleek offers comfortable forays. The bold contrast HRX Formstrip and the HRX logo adds to the highlights of these sneakers.",
-        "price": 2599
+        "price": 2599,
+        "count": 1
     },
     {
         "pid": "4",
@@ -53,7 +56,8 @@
         "colors": ["red", "blue", "green"],
         "description": "Fossil Analog Wrist Watch with a leather strap. Ideal fot swimmers and athletes. Available in Four different colors.",
         "content": "Analog watches with a leather strap never go out of style. This stylish analog watch from Fossil comes with a water resistance of 50 mm. This elegantly designed watch from Fossil brings the best of style and technology.",
-        "price": 999
+        "price": 999,
+        "count": 1
     },
     {
         "pid": "5",
@@ -67,7 +71,8 @@
         "colors": ["red", "blue", "green"],
         "description": "Sony Wired HeadSet designed for people always on the move, easy storage and easy to carry with an elegant look.",
         "content": "Experience the next generation of headphones with Sony's MDR-ZX310-AP sound monitoring headphones. Fitted with a 30mm dynamic driver unit and in-line remote control with mic, you are guaranteed to enjoy hours of crisp, quality sound.",
-        "price": 1499
+        "price": 1499,
+        "count": 1
     },
     {
         "pid": "6",
@@ -81,6 +86,7 @@
         "colors": ["red", "blue", "green"],
         "description": "The Redmi 8 is not just a sight to behold but also comes equipped with innovative features that will keep you productive and entertained.",
         "content": "Its Helio G85 Gaming Processor ensures that you stay on top of the leaderboard while gaming. Its 16.5 cm (6.5) Mini-drop Fullscreen ensures an immersive experience while gaming, streaming content, and more. And, its 13 MP Primary Camera will help you take high-resolution photos in clear detail.",
-        "price": 9999
+        "price": 9999,
+        "count": 1
     }
 ]
