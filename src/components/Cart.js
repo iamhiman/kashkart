@@ -5,7 +5,7 @@ import { DataContext } from "./DataProvider";
 export default function Cart() {
 
     const value = useContext(DataContext);
-    const [cart, setCart] = value.cart;
+    const [cart] = value.cart;
 
     return (
         <section>
