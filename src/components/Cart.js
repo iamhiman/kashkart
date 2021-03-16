@@ -26,6 +26,17 @@ export default function Cart() {
         setCart([...cart])
     }
 
+    const removeProduct = id => {
+        if (window.confirm("Are you sure to remove this product ?")) {
+            cart.forEach((item, index) => {
+                if (item.pid === id) {
+                    cart.splice(index, 1)
+                }
+            })
+            setCart([...cart])
+        }
+    }
+
     return (
         <section>
             <div className="cart">
@@ -45,7 +56,7 @@ export default function Cart() {
                                         <button className="count" onClick={() => increaseProduct(product.pid)}> + </button>
                                     </div>
 
-                                    <button className="delete">Remove</button>
+                                    <button className="delete" onClick={() => removeProduct(product.pid)}>Remove</button>
                                 </div>
                             </div>
                         ))
