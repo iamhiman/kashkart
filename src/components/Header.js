@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Menu from "./svg/menu.svg";
 import Close from "./svg/cross.png";
+import { DataContext } from "./DataProvider";
 
 export default function Header() {
 
     const [menu, setMenu] = useState(false);
+    const value = useContext(DataContext);
+    const [cart] = value.cart;
 
     const toggleMenu = () => {
         setMenu(!menu);
@@ -45,7 +48,7 @@ export default function Header() {
             </ul>
 
             <div className="cart-icon">
-                <span>0</span>
+                <span>{cart.length}</span>
                 <Link to="/cart">
                     <ShoppingCartIcon style={styles.largeIcon} className="menu"></ShoppingCartIcon>
                 </Link>
