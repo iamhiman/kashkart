@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Link } from "react-router-dom"
 import { DataContext } from "./DataProvider";
 
@@ -6,6 +6,37 @@ export default function Cart() {
 
     const value = useContext(DataContext);
     const [cart, setCart] = value.cart;
+    const [total, setTotal] = useState(0);
+    const [allItemCost, setAllItemCost] = useState(0);
+
+    useEffect(() => {
+        //console.log("Inside cart useffect");
+        const getTotal = () => {
+            //console.log("Inside getTotal ()");
+            let result = cart.reduce((prev, item) => {
+                return prev + (item.price * item.count)
+            }, 0)
+            //console.log(result);
+            setAllItemCost(result);
+            let flag = false;
+            if (result < 1000 && flag === false) {
+                flag = true;
+                result = result + 100;
+                setTotal(result);
+            }
+            else if (result > 1000 && flag === true) {
+                flag = false;
+                result = result - 100;
+                setTotal(result);
+            }
+            else {
+                setTotal(result);
+            }
+        }
+        //console.log("Inside cart useffect2");
+        getTotal();
+        //console.log("Inside cart useffect3");
+    }, [cart])
 
     const increaseProduct = id => {
         cart.forEach(item => {
@@ -70,15 +101,15 @@ export default function Cart() {
                     <p className="heading">Price Details</p>
 
                     <div className="price">
-                        <p>Price: </p><p>&#8377; 1000</p>
+                        <p>Price: </p><p>&#8377; {total.toLocaleString()}</p>
                     </div>
 
                     <div className="delivery">
-                        <p>Delivery Charges: </p> <p>&#8377; 100</p>
+                        <p>Delivery Charges: </p>{allItemCost < 1000 ? (<p>&#8377; 100</p>) : (<p>Free</p>)}
                     </div>
 
                     <div className="total">
-                        <p>Total: </p><p>&#8377; 1000</p>
+                        <p>Total: </p><p>&#8377; {total.toLocaleString()}</p>
                     </div>
 
                     <Link to="/" className="checkout-btn">Payment</Link>
