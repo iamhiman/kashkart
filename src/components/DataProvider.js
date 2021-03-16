@@ -1,13 +1,13 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState, useEffect } from 'react';
 
 export const DataContext = createContext();
 
 export const DataProvider = (props) => {
 
     const [products, setProducts] = useState([]);
-    //console.log("Just before getData");
+
     const getData = () => {
-        //console.log("Just before fetchapi");
+
         fetch('data.json'
             , {
                 headers: {
@@ -17,23 +17,15 @@ export const DataProvider = (props) => {
             }
         )
             .then(function (response) {
-                //console.log(response)
                 return response.json();
             })
             .then(function (myJson) {
-                //console.log(myJson);
                 setProducts(myJson)
-                //console.log("Products1: ", products );
             });
-        //console.log("Just after fetch api");
     }
 
-    //console.log("Just before useeffect after getdata()");
     useEffect(() => {
-        //console.log("Inside useffect");
         getData()
-        //console.log("Products2: ", products );
-        //console.log("After Calling getdata");
     }, [])
 
     const [cart, setCart] = useState([]);
@@ -52,22 +44,20 @@ export const DataProvider = (props) => {
         else {
             alert("Product has been added to cart.");
         }
-        //console.log("cart:", cart);
     }
 
     useEffect(() => {
-        const storageCart = JSON.parse(localStorage.getItem("storageCart"))
-        //console.log("inside useeffect to get item")
-        if(storageCart)
-        {
-            //console.log("data is found");
+
+        const storageCart = JSON.parse(localStorage.getItem("storageCart"));
+
+        if (storageCart) {
             setCart(storageCart);
         }
     }, [])
 
     useEffect(() => {
-        //console.log("inside useeffect  to set item")
-        localStorage.setItem("storageCart", JSON.stringify(cart))
+
+        localStorage.setItem("storageCart", JSON.stringify(cart));
     }, [cart])
 
     const value = {

@@ -1,5 +1,4 @@
-import React from 'react'
-import BgImg from "../bg.png"
+import React from 'react';
 import { Link } from "react-router-dom";
 import ShippingIcon from '@material-ui/icons/LocalShipping';
 import SupportIcon from '@material-ui/icons/ContactSupport';
@@ -17,6 +16,7 @@ export default function Home() {
         }
 
     };
+
     return (
         <section>
             <div className="landing-box">
@@ -26,7 +26,7 @@ export default function Home() {
                     <Link to="/products">Shop Now</Link>
                 </div>
 
-                <img src={BgImg} alt="landing-pic" />
+                <img src="bg.png" alt="landing-pic" />
             </div>
 
             <div className="features">

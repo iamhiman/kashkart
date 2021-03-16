@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import Products from "./components/Products";
 import { DataProvider } from "./components/DataProvider";
-import Details from "./components/Details";
+import Details from "./components/Details/Details";
 import Cart from "./components/Cart";
 
 function App() {

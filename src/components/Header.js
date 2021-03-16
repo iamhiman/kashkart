@@ -1,8 +1,6 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext } from 'react';
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import Menu from "./svg/menu.svg";
-import Close from "./svg/cross.png";
 import { DataContext } from "./DataProvider";
 
 export default function Header() {
@@ -18,16 +16,16 @@ export default function Header() {
     const styles = {
 
         largeIcon: {
-          width: 28,
-          height: 28,
+            width: 28,
+            height: 28
         },
 
         styleMenu: {
             top: menu ? 0 : "-100%",
             backgroundColor: "#2b6777"
-        }      
-      };
-      
+        }
+    };
+
     return (
         <header>
             <div className="logo">
@@ -43,7 +41,7 @@ export default function Header() {
                 <li><Link to="/products">Products</Link></li>
                 <li><Link to="/">Login/Register</Link></li>
                 <li onClick={toggleMenu}>
-                    <img src={Close} alt="" width="30" className="menu" />
+                    <img src="cross.png" alt="close-menu" width="30" className="menu" />
                 </li>
             </ul>
 
@@ -55,7 +53,7 @@ export default function Header() {
             </div>
 
             <div className="menu" onClick={toggleMenu}>
-                <img src={Menu} alt="" width="30" />
+                <img src="menu.svg" alt="menu" width="30" />
             </div>
 
         </header>

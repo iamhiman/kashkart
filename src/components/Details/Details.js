@@ -1,14 +1,12 @@
-import React, { useState, useContext, useRef } from 'react'
-import { useParams, Link } from "react-router-dom"
-import { DataContext } from "./DataProvider";
+import React, { useState, useContext, useRef } from 'react';
+import { useParams, Link } from "react-router-dom";
+import { DataContext } from "../DataProvider";
 import DetailsThumb from "./DetailsThumb";
 import Colors from "./Colors";
 
 export default function Details() {
 
     const { id } = useParams();
-    //console.log(useParams());
-    //console.log(id);
     const value = useContext(DataContext);
     const [products] = value.products;
     const addCart = value.addCart;
@@ -19,14 +17,11 @@ export default function Details() {
         return product.pid === id;
     })
 
-    //console.log(details);
-
     const handleMouseMove = (e) => {
         const { left, top, width, height } = e.target.getBoundingClientRect();
         const x = (e.pageX - left) / width * 100;
         const y = (e.pageY - top) / height * 100;
 
-        //console.log(imgDiv.current);
         imgDiv.current.style.backgroundPosition = `${x}% ${y}%`;
     }
 

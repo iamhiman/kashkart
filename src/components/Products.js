@@ -7,11 +7,6 @@ export default function Products() {
     const value = useContext(DataContext);
     const [products] = value.products;
     const addCart = value.addCart;
-    //console.log("value:", value);
-    //console.log(addCart);
-
-    //console.log(value);
-    //console.log("Inside products component", products);
 
     return (
         <section>

@@ -1,5 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { Link } from "react-router-dom"
+import React, { useState, useContext, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { DataContext } from "./DataProvider";
 
 export default function Cart() {
@@ -10,13 +10,13 @@ export default function Cart() {
     const [allItemCost, setAllItemCost] = useState(0);
 
     useEffect(() => {
-        //console.log("Inside cart useffect");
+
         const getTotal = () => {
-            //console.log("Inside getTotal ()");
+
             let result = cart.reduce((prev, item) => {
                 return prev + (item.price * item.count)
             }, 0)
-            //console.log(result);
+
             setAllItemCost(result);
             let flag = false;
             if (result < 1000 && flag === false) {
@@ -33,9 +33,8 @@ export default function Cart() {
                 setTotal(result);
             }
         }
-        //console.log("Inside cart useffect2");
+
         getTotal();
-        //console.log("Inside cart useffect3");
     }, [cart])
 
     const increaseProduct = id => {
@@ -44,8 +43,7 @@ export default function Cart() {
                 item.count += 1;
             }
         })
-        setCart([...cart])
-        //console.log("Cart: ", cart);
+        setCart([...cart]);
     }
 
     const decreaseProduct = id => {
@@ -54,7 +52,7 @@ export default function Cart() {
                 item.count === 1 ? item.count = 1 : item.count -= 1;
             }
         })
-        setCart([...cart])
+        setCart([...cart]);
     }
 
     const removeProduct = id => {
@@ -64,7 +62,7 @@ export default function Cart() {
                     cart.splice(index, 1)
                 }
             })
-            setCart([...cart])
+            setCart([...cart]);
         }
     }
 
