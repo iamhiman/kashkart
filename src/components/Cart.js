@@ -5,7 +5,26 @@ import { DataContext } from "./DataProvider";
 export default function Cart() {
 
     const value = useContext(DataContext);
-    const [cart] = value.cart;
+    const [cart, setCart] = value.cart;
+
+    const increaseProduct = id => {
+        cart.forEach(item => {
+            if (item.pid === id) {
+                item.count += 1;
+            }
+        })
+        setCart([...cart])
+        //console.log("Cart: ", cart);
+    }
+
+    const decreaseProduct = id => {
+        cart.forEach(item => {
+            if (item.pid === id) {
+                item.count === 1 ? item.count = 1 : item.count -= 1;
+            }
+        })
+        setCart([...cart])
+    }
 
     return (
         <section>
@@ -21,9 +40,9 @@ export default function Cart() {
                                     <h3>&#8377; {product.price}</h3>
 
                                     <div className="amount">
-                                        <button className="count"> - </button>
+                                        <button className="count" onClick={() => decreaseProduct(product.pid)}> - </button>
                                         <span>{product.count}</span>
-                                        <button className="count"> + </button>
+                                        <button className="count" onClick={() => increaseProduct(product.pid)}> + </button>
                                     </div>
 
                                     <button className="delete">Remove</button>

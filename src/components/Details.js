@@ -36,7 +36,7 @@ export default function Details() {
                 details.map(product => (
                     <div className="details" key={product.pid}>
                         <div className="details-img" onMouseMove={handleMouseMove} style={{ backgroundImage: `url(${product.images[index]})` }} ref={imgDiv} onMouseLeave={() => imgDiv.current.style.backgroundPosition = `center`} />
-    
+
                         <div className="details-content">
                             <h2 title={product.title}>{product.title}</h2>
                             <Colors colors={product.colors} />
