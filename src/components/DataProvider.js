@@ -52,8 +52,23 @@ export const DataProvider = (props) => {
         else {
             alert("Product has been added to cart.");
         }
-        console.log("cart:", cart);
+        //console.log("cart:", cart);
     }
+
+    useEffect(() => {
+        const storageCart = JSON.parse(localStorage.getItem("storageCart"))
+        //console.log("inside useeffect to get item")
+        if(storageCart)
+        {
+            //console.log("data is found");
+            setCart(storageCart);
+        }
+    }, [])
+
+    useEffect(() => {
+        //console.log("inside useeffect  to set item")
+        localStorage.setItem("storageCart", JSON.stringify(cart))
+    }, [cart])
 
     const value = {
         products: [products, setProducts],
