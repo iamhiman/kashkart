@@ -37,6 +37,9 @@ export default function Cart() {
         }
     }
 
+    if (cart.length === 0)
+        return <section id="cart-section">Cart is Empty ...!!! </section>
+
     return (
         <section>
             <div className="cart">

@@ -27,6 +27,12 @@
     @extend %btn;
 }
 
+#cart-section{
+    @include flexCenter(row, center);
+    font-size: 3rem;
+    text-align: center
+}
+
 .cart {
     @include flexCenter(row, space-evenly);
     margin: 0 auto 0 auto;
