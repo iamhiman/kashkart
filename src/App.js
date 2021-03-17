@@ -7,6 +7,7 @@ import Products from "./components/Products";
 import { DataProvider } from "./components/DataProvider";
 import Details from "./components/Details/Details";
 import Cart from "./components/Cart";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/products" component={Products} />
           <Route exact path="/products/:id" component={Details} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/register" component={Register} />
           <Products />
         </Switch>
 

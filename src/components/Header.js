@@ -39,7 +39,7 @@ export default function Header() {
             <ul style={styles.styleMenu}>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/products">Products</Link></li>
-                <li><Link to="/">Login/Register</Link></li>
+                <li><Link to="/register">Login/Register</Link></li>
                 <li onClick={toggleMenu}>
                     <img src="cross.png" alt="close-menu" width="30" className="menu" />
                 </li>
