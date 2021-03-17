@@ -14,6 +14,54 @@ $secondary-color: #f2f2f2;
     border: $width solid $color;
 }
 
+@mixin mobile-970 {
+    @media (max-width: 970px) {
+        @content;
+    }
+}
+
+@mixin mobile-878 {
+    @media (max-width: 878px) {
+        @content;
+    }
+}
+
+@mixin mobile-550 {
+    @media (max-width: 550px) {
+        @content;
+    }
+}
+
+@mixin mobile-500 {
+    @media (max-width: 500px) {
+        @content;
+    }
+}
+
+@mixin mobile-450 {
+    @media (max-width: 450px) {
+        @content;
+    }
+}
+
+@mixin mobile-400 {
+    @media (max-width: 400px) {
+        @content;
+    }
+}
+
+@mixin mobile-350 {
+    @media (max-width: 350px) {
+        @content;
+    }
+}
+
+@mixin mobile-300 {
+    @media (max-width: 300px) {
+        @content;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;

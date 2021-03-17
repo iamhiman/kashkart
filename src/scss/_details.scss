@@ -5,6 +5,10 @@
     flex-wrap: wrap;
     padding: 20px;
 
+    @include mobile-970 {
+        text-align: center;
+    }
+
     #{&}-img {
         @include bordered(2px, $primary-color);
         width: 350px;
@@ -13,6 +17,15 @@
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
+
+        @include mobile-400 {
+            width: 300px;
+            height: 350px;
+        }
+
+        @include mobile-350 {
+            height: 300px;
+        }
 
         &:hover {
             background-size: 150%;
@@ -50,6 +63,10 @@
         width: 135px;
         margin: 10px;
 
+        @include mobile-970 {
+            margin: auto;
+        }
+
         button {
             @include bordered(1px, #000);
             width: 35px;
@@ -67,6 +84,10 @@
         margin: 15px;
         width: 250px;
 
+        @include mobile-970 {
+            margin: auto;
+        }
+
         img {
             @include bordered(1px, $primary-color);
             width: 50px;
@@ -80,7 +101,7 @@
         cursor: pointer;
         color: $secondary-color;
         margin: 10px;
-        padding: 10px 25px;
+        padding: 10px 20px;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: bold;

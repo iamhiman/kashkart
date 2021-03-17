@@ -20,6 +20,10 @@
         h1 {
             @extend %text-format;
             font-size: 32px;
+
+            @include mobile-400 {
+                font-size: 20px;
+            }
         }
 
         p {
@@ -27,12 +31,16 @@
             font-size: 22px;
             margin-bottom: 15px;
             color: $primary-color;
+
+            @include mobile-400 {
+                font-size: 16px;
+            }
         }
 
         a {
             @include bordered(2px, $primary-color);
             color: $primary-color;
-            padding: 10px 20px 10px 20px;
+            padding: 10px 20px;
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -40,6 +48,11 @@
             font-weight: bold;
             font-size: 20px;
             transition: all 0.7s;
+
+            @include mobile-400 {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
 
             &:hover {
                 color: $secondary-color;
@@ -53,6 +66,18 @@
         border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
         background-color: #adc5d8;
         margin-right: 10px;
+
+        @include mobile-500 {
+            width: 380px;
+        }
+
+        @include mobile-400 {
+            width: 300px;
+        }
+
+        @include mobile-300 {
+            width: 260px;
+        }
     }
 }
 
