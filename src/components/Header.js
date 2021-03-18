@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { DataContext } from "./DataProvider";
 
-export default function Header() {
+export default function Header(props) {
 
     const [menu, setMenu] = useState(false);
     const value = useContext(DataContext);
@@ -26,6 +26,10 @@ export default function Header() {
         }
     };
 
+    const handleChange = event => {
+        props.setSearch(event.target.value);
+    };
+
     return (
         <header>
             <div className="logo">
@@ -33,7 +37,7 @@ export default function Header() {
             </div>
 
             <form action="#" autoComplete="off">
-                <input type="text" id="input-search" name="search" placeholder="Search..." />
+                <input type="text" id="input-search" name="search" placeholder="Search..." onChange={handleChange} />
             </form>
 
             <ul style={styles.styleMenu}>

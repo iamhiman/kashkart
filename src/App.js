@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Header from "./components/Header";
 import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
@@ -10,14 +10,17 @@ import Cart from "./components/Cart";
 import Register from "./components/Register";
 
 function App() {
+
+  const [search, setSearch] = useState("");  
+  
   return (
     <DataProvider>
       <>
-        <Header />
+        <Header setSearch={setSearch} />
 
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/products" component={Products} />
+          <Route exact path="/products" component={() => <Products search={search} />} />
           <Route exact path="/products/:id" component={Details} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/register" component={Register} />

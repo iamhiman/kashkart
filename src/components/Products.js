@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { DataContext } from "./DataProvider";
 import { Link } from "react-router-dom";
 
-export default function Products() {
+export default function Products(props) {
 
     const value = useContext(DataContext);
     const [products] = value.products;
@@ -12,7 +12,15 @@ export default function Products() {
         <section>
             <div className="products">
                 {
-                    products.map(product => (
+                    products.filter(product => {
+                        if (product.title.toLowerCase().includes(props.search.toLowerCase())) {
+                            return product;
+                        }
+                        else {
+                            return false;
+                        }
+
+                    }).map(product => (
                         <div className="products-card" key={product.pid}>
                             <Link to={`/products/${product.pid}`}>
                                 <img src={product.images[0]} alt="cover-pic" />
