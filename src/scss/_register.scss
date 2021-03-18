@@ -37,7 +37,7 @@
 
 .form-input {
     @extend %flex-col;
-    margin: 15px 0 20px 0;
+    margin: 16px 0;
     padding: 0 20px;
     width: 95%;
 
@@ -56,12 +56,13 @@
         width: 95%;
         padding: 8px;
         border: 2px solid #e67e22;
+        ;
         margin: 5px 10px;
         font-size: 18px;
         background-color: #eaeaea;
         outline: none;
 
-        @include mobile-400{
+        @include mobile-400 {
             width: 92%;
         }
     }
@@ -95,6 +96,6 @@ small {
 
 .form-error {
     color: red;
-    margin-bottom: -15px;
+    margin-bottom: -20px;
     margin-left: 12px;
 }

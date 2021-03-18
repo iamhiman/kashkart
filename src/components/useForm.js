@@ -1,7 +1,9 @@
 import { useState } from "react";
 
-const useForm = () => {
-    const [values, setValues] = useState({ name: "", email: "", password: "" });
+const useForm = (validate) => {
+    const [values, setValues] = useState({ username: "", email: "", password: "" });
+    const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleInput = event => {
         const { name, value } = event.target;
@@ -9,20 +11,20 @@ const useForm = () => {
             ...values,
             [name]: value
         });
-        //console.log(event.target.name)
-        //console.log(event.target.value)      
     };
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log("form submitted")
-        console.log(values)
+        setErrors(validate(values));
+        setIsSubmitting(true);
     };
 
     return {
         handleInput,
         handleSubmit,
-        values
+        values,
+        errors,
+        isSubmitting
     };
 };
 
