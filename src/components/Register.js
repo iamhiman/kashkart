@@ -1,25 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom"
+import useForm from "./useForm";
 
 export default function Register() {
 
-const [values, setValues] = useState({ name: "", email: "", password: "" });
-  
-    const handleInput = event => {
-        const { name, value } = event.target;
-        setValues({
-          ...values,
-          [name]: value
-        });
-        //console.log(event.target.name)
-        //console.log(event.target.value)      
-    };
-
-    const handleSubmit = event => {
-        event.preventDefault();
-        console.log("form submitted")
-        console.log(values)
-      };
+    const { handleInput, handleSubmit, values } = useForm();
 
     return (
         <section>
