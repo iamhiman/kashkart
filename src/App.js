@@ -7,12 +7,12 @@ import Products from "./components/Products";
 import { DataProvider } from "./components/DataProvider";
 import Details from "./components/Details/Details";
 import Cart from "./components/Cart";
-import Register from "./components/Register";
+import Register from "./components/Signup/Register";
 
 function App() {
 
   const [search, setSearch] = useState("");  
-  
+
   return (
     <DataProvider>
       <>
