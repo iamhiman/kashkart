@@ -1,0 +1,24 @@
+.error-main {
+    @include flexCenter(column, space-evenly);
+    min-height: 200px;
+    min-width: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    p {
+        font-size: 22px;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+
+    a {
+        outline: none;
+        @include colour($primary-color, $secondary-color);
+        padding: 10px 20px;
+        border-radius: 20px;
+    }
+}
