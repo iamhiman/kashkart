@@ -1,7 +1,20 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import CopyrightIcon from '@material-ui/icons/Copyright';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 export default function Footer() {
+
+    const styles = {
+
+        smallIcon: {
+          width: 18,
+          height: 18,
+          marginRight: 10
+        }       
+      };
+
+    let year = new Date();
 
     return (
         <footer>
@@ -15,6 +28,12 @@ export default function Footer() {
                 <Link to="/">Cancellation Policy</Link>
                 <Link to="/">Customer Service</Link>
             </div>
+
+            <div className="copyright">
+                <CopyrightIcon style={styles.smallIcon} /> 
+                <p>{`${year.getFullYear()}, kashkart.in`}</p>
+                <a href="https://github.com/iamhiman/kashkart" target="_blank" rel="noreferrer" ><GitHubIcon /></a>
+            </div> 
         </footer>
     )
 }

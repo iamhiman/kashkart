@@ -1,14 +1,14 @@
 footer {
     @include flexCenter(column, space-evenly);
     @include colour($primary-color, $secondary-color);
-    height: 120px;
+    height: 150px;
 
     @include mobile-550 {
         height: 200px;
     }
 
     @include mobile-400 {
-        height: 230px;
+        height: 250px;
     }
 
     .footer-links {
@@ -16,6 +16,7 @@ footer {
         flex-wrap: wrap;
         max-width: 1200px;
         margin: 0 auto 15px auto;
+        padding-top: 10px;
 
         a {
             padding: 10px 15px 10px 15px;
@@ -23,6 +24,21 @@ footer {
             @include mobile-300 {
                 font-size: 15px;
             }
+        }
+    }
+
+    .copyright {
+        @include flexCenter(row, center);
+        font-size: 14px;
+        width: 300px;
+        padding-bottom: 10px;
+
+        @include mobile-300 {
+            font-size: 13px;
+        }
+
+        p {
+            margin-right: 10px;
         }
     }
 }
