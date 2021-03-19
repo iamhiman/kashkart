@@ -1,14 +1,13 @@
 /* ****** Cart ********************** */
 %btn {
+    @include colour($primary-color, $secondary-color);
     padding: 10px 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
     border: none;
     outline: none;
-    background-color: $primary-color;
     cursor: pointer;
-    color: $secondary-color;
     text-align: center;
 }
 
@@ -78,16 +77,14 @@
     }
 
     #{&}-img {
-        width: 150px;
-        height: 150px;
+        @include spread(150px, 150px);
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
         @include bordered(2px, $primary-color);
 
         @include mobile-550 {
-            width: 100px;
-            height: 120px;
+            @include spread(100px, 120px);
         }
 
     }
@@ -117,7 +114,7 @@
         }
 
         h3 {
-            color: rgb(194, 13, 13);
+            color: #C20D0D;
             margin-bottom: 15px;
             font-size: 20px;
 
@@ -129,7 +126,6 @@
             @include mobile-450 {
                 font-size: 14px;
             }
-
         }
 
         .amount {
@@ -139,32 +135,27 @@
             }
 
             .count {
-                width: 30px;
-                height: 30px;
+                @include spread(30px, 30px);
                 @include bordered(1px, #555);
+                @include colour($primary-color, $secondary-color);
                 outline: none;
-                background-color: $primary-color;
-                color: $secondary-color;
                 font-size: 20px;
                 cursor: pointer;
 
                 @include mobile-550 {
-                    width: 25px;
-                    height: 25px;
+                    @include spread(25px, 25px);
                 }
 
                 @include mobile-450 {
-                    width: 20px;
-                    height: 20px;
+                    @include spread(20px, 20px);
                     font-size: 15px;
                 }
             }
 
             span {
-                color: crimson;
+                color: #C20D0D;
                 padding: 0 20px;
                 font-weight: bold;
-
             }
         }
     }

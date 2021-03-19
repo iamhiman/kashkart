@@ -14,6 +14,16 @@ $secondary-color: #f2f2f2;
     border: $width solid $color;
 }
 
+@mixin spread($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin colour($background-color, $color) {
+    background-color: $background-color;
+    color: $color;
+}
+
 @mixin mobile-970 {
     @media (max-width: 970px) {
         @content;

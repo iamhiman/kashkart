@@ -55,8 +55,7 @@
             }
 
             &:hover {
-                color: $secondary-color;
-                background-color: $primary-color;
+                @include colour($primary-color, $secondary-color);
             }
         }
     }

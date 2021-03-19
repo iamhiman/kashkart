@@ -42,13 +42,9 @@ header {
     ul {
         @include mobile-878 {
             position: fixed;
-            width: 100%;
-            height: 40vh;
+            @include spread(100%, 50vh);
             padding-top: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
+            @include flexCenter(column, space-around);
             z-index: 99;
             transition: 0.7s ease-in-out;
         }
@@ -73,8 +69,7 @@ header {
                 transition: 0.7s;
 
                 &:hover {
-                    color: $primary-color;
-                    background-color: $secondary-color;
+                    @include colour($secondary-color, $primary-color);
                 }
             }
         }
@@ -89,9 +84,8 @@ header {
         }
 
         span {
-            background: rgb(194, 13, 13);
+            @include colour(#C20D0D, $secondary-color);
             border-radius: 50%;
-            color: $secondary-color;
             position: absolute;
             bottom: 25px;
             right: 6px;

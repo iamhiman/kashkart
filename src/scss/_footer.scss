@@ -1,7 +1,6 @@
 footer {
     @include flexCenter(column, space-evenly);
-    background-color: $primary-color;
-    color: $secondary-color;
+    @include colour($primary-color, $secondary-color);
     height: 120px;
 
     @include mobile-550 {
