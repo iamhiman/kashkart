@@ -25,6 +25,10 @@
     form {
         @include flexCenter(column, center);
         color: $primary-color;
+
+        a {
+            color: $primary-color;
+        }
     }
 }
 
@@ -78,16 +82,62 @@
     }
 }
 
-small {
-    font-weight: bold;
-
-    a {
-        color: $primary-color;
-    }
-}
-
 .form-error {
     color: #C20D0D;
     margin-bottom: -20px;
     margin-left: 12px;
+    font-weight: bold;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+
+    #{&}-text {
+        @include colour(#c8d8e4, $primary-color);
+        @include bordered(1px, $primary-color);
+        width: 300px;
+        font-size: 13px;
+        position: absolute;
+        top: 150%;
+        left: 50%;
+        border-radius: 10px;
+        padding: 10px;
+        margin-left: -110px;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.7s;
+
+        @include mobile-400 {
+            font-size: 11px;
+            width: 260px;
+        }
+
+        @include mobile-300 {
+            margin-left: -120px;
+        }
+    }
+
+    #{&}-text::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -50px;
+        border: 10px solid;
+        border-color: transparent transparent $primary-color transparent;
+
+        @include mobile-400 {
+            margin-left: -30px;
+        }
+
+        @include mobile-300 {
+            margin-left: -20px;
+        }
+    }
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
 }

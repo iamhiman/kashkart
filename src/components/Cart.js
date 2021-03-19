@@ -110,7 +110,8 @@ export default function Cart() {
                         <p>Total: </p><p>&#8377; {total.toLocaleString()}</p>
                     </div>
 
-                    <Link to="/" className="checkout-btn">Payment</Link>
+                    <Link to="/cart" className="checkout-btn">Payment</Link>
+                    <small>*Free Delivery for orders above &#8377;1000 </small>
                 </div>
 
             </div>

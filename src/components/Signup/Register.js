@@ -27,7 +27,14 @@ export default function Register() {
                         </div>
 
                         <div className="form-input">
-                            <label>Password</label>
+                            <label>Password <span className="tooltip"> &#9432;
+            	                <span className="tooltip-text">Password must have atleast: <br /><br />
+                                &#8226; 1 digit (0-9)<br />
+                                &#8226; 1 uppercase &amp; 1 lowercase alphabet<br />
+                                &#8226; 1 special character (!#$@^%&amp;?)<br />
+                                &#8226; 8 characters &amp; less than 20 characters</span>
+                                </span>
+                            </label>
                             <input name="password" type="password" onChange={handleInput} value={values.password} />
                             {errors.password && <small className="form-error">{errors.password}</small>}
                         </div>
