@@ -60,6 +60,7 @@ export default function Cart() {
             cart.forEach((item, index) => {
                 if (item.pid === id) {
                     cart.splice(index, 1)
+                    item.count = 1;
                 }
             })
             setCart([...cart]);
