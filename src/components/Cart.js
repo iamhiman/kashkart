@@ -99,7 +99,7 @@ export default function Cart() {
                     <p className="heading">Price Details</p>
 
                     <div className="price">
-                        <p>Price: </p><p>&#8377; {total.toLocaleString()}</p>
+                        <p>Price: </p><p>&#8377; {allItemCost.toLocaleString()}</p>
                     </div>
 
                     <div className="delivery">
