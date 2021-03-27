@@ -3,7 +3,7 @@
 <p align="center">
 	<img src="https://img.shields.io/badge/Platform-Web-brightgreen" alt="Platform-Web">
 	<img src="https://img.shields.io/badge/Repo%20Size-5.4%20MB-blue" alt="Repo-Size">
-    <img src="https://img.shields.io/badge/Tech%20Stack-React%20JS%2C%20React--Router%2C%20JavaScript%2C%20JSON%2C%20SCSS-red" alt="Tech-Stack">
+    <img src="https://img.shields.io/badge/Tech%20Stack-React%20JS%2C%20React--Router%2C%20JSON%2C%20SCSS-red" alt="Tech-Stack">
     <img src="https://img.shields.io/badge/Automation%20Tool-Gulp-%23FF1493" alt="Automation">
 </p>
 
