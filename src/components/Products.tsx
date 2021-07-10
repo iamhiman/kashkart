@@ -2,10 +2,14 @@ import React, { useContext } from 'react';
 import { DataContext } from "./DataProvider";
 import { Link } from "react-router-dom";
 
-export default function Products(props) {
+interface IProductsProps {
+    search: string;
+}
+
+const Products: React.FunctionComponent<IProductsProps> = (props) => {
 
     const value = useContext(DataContext);
-    const [products] = value.products;
+    const products = value.products;
     const addCart = value.addCart;
 
     return (
@@ -40,3 +44,5 @@ export default function Products(props) {
         </section>
     )
 }
+
+export default Products;

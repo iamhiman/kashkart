@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import CopyrightIcon from '@material-ui/icons/Copyright';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
-export default function Footer() {
+const Footer: React.FunctionComponent = () => {
 
     const styles = {
 
         smallIcon: {
-          width: 18,
-          height: 18,
-          marginRight: 10
-        }       
-      };
+            width: 18,
+            height: 18,
+            marginRight: 10
+        }
+    };
 
     let year = new Date();
 
@@ -30,10 +30,12 @@ export default function Footer() {
             </div>
 
             <div className="copyright">
-                <CopyrightIcon style={styles.smallIcon} /> 
+                <CopyrightIcon style={styles.smallIcon} />
                 <p>{`${year.getFullYear()}, kashkart.in`}</p>
                 <a href="https://github.com/iamhiman/kashkart" target="_blank" rel="noreferrer" ><GitHubIcon /></a>
-            </div> 
+            </div>
         </footer>
     )
 }
+
+export default Footer;

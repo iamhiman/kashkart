@@ -1,6 +1,10 @@
 import React from 'react';
 
-export default function Colors(props) {
+interface IColorsProps {
+    colors: Array<string>;
+}
+
+const Colors: React.FunctionComponent<IColorsProps> = (props) => {
     return (
         <div className="colors">
             {
@@ -11,3 +15,5 @@ export default function Colors(props) {
         </div>
     )
 }
+
+export default Colors;

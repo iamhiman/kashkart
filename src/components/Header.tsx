@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { DataContext } from "./DataProvider";
 
-export default function Header(props) {
+interface IHeaderProps {
+    setSearch: (arg0: string) => void;
+}
+
+const Header: React.FunctionComponent<IHeaderProps> = (props) => {
 
     const [menu, setMenu] = useState(false);
     const value = useContext(DataContext);
-    const [cart] = value.cart;
-
-    const toggleMenu = () => {
-        setMenu(!menu);
-    }
+    const cart = value.cart;
 
     const styles = {
 
@@ -26,9 +26,9 @@ export default function Header(props) {
         }
     };
 
-    const handleChange = event => {
-        props.setSearch(event.target.value);
-    };
+    const toggleMenu = () => setMenu(!menu);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => props.setSearch(e.target.value);
 
     return (
         <header>
@@ -63,3 +63,5 @@ export default function Header(props) {
         </header>
     )
 }
+
+export default Header;

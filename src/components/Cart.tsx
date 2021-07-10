@@ -2,42 +2,38 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { DataContext } from "./DataProvider";
 
-export default function Cart() {
+const Cart: React.FunctionComponent = () => {
 
     const value = useContext(DataContext);
-    const [cart, setCart] = value.cart;
+    const cart = value.cart;
+    const setCart = value.setCart;
     const [total, setTotal] = useState(0);
     const [allItemCost, setAllItemCost] = useState(0);
 
     useEffect(() => {
 
-        const getTotal = () => {
+        let result = cart.reduce((prev, item) => {
+            return prev + (item.price * item.count)
+        }, 0)
 
-            let result = cart.reduce((prev, item) => {
-                return prev + (item.price * item.count)
-            }, 0)
-
-            setAllItemCost(result);
-            let flag = false;
-            if (result < 1000 && flag === false) {
-                flag = true;
-                result = result + 100;
-                setTotal(result);
-            }
-            else if (result > 1000 && flag === true) {
-                flag = false;
-                result = result - 100;
-                setTotal(result);
-            }
-            else {
-                setTotal(result);
-            }
+        setAllItemCost(result);
+        let flag = false;
+        if (result < 1000 && flag === false) {
+            flag = true;
+            result = result + 100;
+            setTotal(result);
         }
-
-        getTotal();
+        else if (result > 1000) {
+            flag = false;
+            result = result - 100;
+            setTotal(result);
+        }
+        else {
+            setTotal(result);
+        }
     }, [cart])
 
-    const increaseProduct = id => {
+    const increaseProduct = (id: string) => {
         cart.forEach(item => {
             if (item.pid === id) {
                 item.count += 1;
@@ -46,7 +42,7 @@ export default function Cart() {
         setCart([...cart]);
     }
 
-    const decreaseProduct = id => {
+    const decreaseProduct = (id: string) => {
         cart.forEach(item => {
             if (item.pid === id) {
                 item.count === 1 ? item.count = 1 : item.count -= 1;
@@ -55,7 +51,7 @@ export default function Cart() {
         setCart([...cart]);
     }
 
-    const removeProduct = id => {
+    const removeProduct = (id: string) => {
         if (window.confirm("Are you sure to remove this product ?")) {
             cart.forEach((item, index) => {
                 if (item.pid === id) {
@@ -120,3 +116,5 @@ export default function Cart() {
         </section>
     )
 }
+
+export default Cart;

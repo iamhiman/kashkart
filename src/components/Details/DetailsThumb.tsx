@@ -1,6 +1,11 @@
 import React from 'react';
 
-export default function DetailsThumb(props) {
+interface IDetailsThumbProps {
+    images: Array<string>;
+    setIndex: (arg0: number) => void;
+}
+
+const DetailsThumb: React.FunctionComponent<IDetailsThumbProps> = (props) => {
     return (
         <div className="thumb">
             {
@@ -11,3 +16,5 @@ export default function DetailsThumb(props) {
         </div>
     )
 }
+
+export default DetailsThumb;

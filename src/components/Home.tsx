@@ -5,7 +5,7 @@ import SupportIcon from '@material-ui/icons/ContactSupport';
 import ReturnIcon from '@material-ui/icons/MonetizationOn';
 import CancelIcon from '@material-ui/icons/Cancel';
 
-export default function Home() {
+const Home: React.FunctionComponent = () => {
 
     const styles = {
 
@@ -54,3 +54,5 @@ export default function Home() {
         </section>
     )
 }
+
+export default Home;

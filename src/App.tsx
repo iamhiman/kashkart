@@ -10,7 +10,7 @@ import Cart from "./components/Cart";
 import Register from "./components/Signup/Register";
 import Error from "./components/Error";
 
-function App() {
+const App: React.FunctionComponent = () => {
 
   const [search, setSearch] = useState("");
 
@@ -29,7 +29,7 @@ function App() {
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/register" component={Register} />
               <Redirect to="/error404" />
-              <Products />
+              <Products search={search} />
             </Switch>
             <Footer />
 

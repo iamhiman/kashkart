@@ -1,13 +1,32 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-export const DataContext = createContext();
+interface IProductType {
+    colors: Array<string>;
+    content: string;
+    count: number;
+    description: string;
+    images: Array<string>;
+    pid: string;
+    price: number;
+    title: string;
+};
 
-export const DataProvider = (props) => {
+interface IContextProps {
+    products: IProductType[];
+    setProducts: (arg0: Array<IProductType>) => void;
+    cart: IProductType[];
+    setCart: (arg0: Array<IProductType>) => void;
+    addCart: (arg0: string) => void;
+}
 
-    const [products, setProducts] = useState([]);
+export const DataContext = createContext<IContextProps>({} as IContextProps);
 
-    const getData = () => {
+export const DataProvider: React.FunctionComponent = (props) => {
 
+    const [products, setProducts] = useState<IProductType[]>([]);
+    const [cart, setCart] = useState<IProductType[]>([]);
+
+    useEffect(() => {
         fetch('data.json'
             , {
                 headers: {
@@ -22,15 +41,9 @@ export const DataProvider = (props) => {
             .then(function (myJson) {
                 setProducts(myJson)
             });
-    }
-
-    useEffect(() => {
-        getData()
     }, [])
 
-    const [cart, setCart] = useState([]);
-
-    const addCart = (id) => {
+    const addCart = (id: string) => {
         const check = cart.every(item => {
             return item.pid !== id;
         })
@@ -48,7 +61,7 @@ export const DataProvider = (props) => {
 
     useEffect(() => {
 
-        const storageCart = JSON.parse(localStorage.getItem("storageCart"));
+        const storageCart: Array<IProductType> = JSON.parse(localStorage.getItem("storageCart") || '{}');
 
         if (storageCart) {
             setCart(storageCart);
@@ -56,14 +69,15 @@ export const DataProvider = (props) => {
     }, [])
 
     useEffect(() => {
-
         localStorage.setItem("storageCart", JSON.stringify(cart));
     }, [cart])
 
-    const value = {
-        products: [products, setProducts],
-        cart: [cart, setCart],
-        addCart: addCart
+    const value: IContextProps = {
+        products: products,
+        setProducts: setProducts,
+        cart: cart,
+        setCart: setCart,
+        addCart: addCart,
     }
 
     return (
