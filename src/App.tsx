@@ -32,7 +32,7 @@ function App() {
               <Products />
             </Switch>
             <Footer />
-            
+
           </Route>
         </Switch>
       </>
